@@ -1,0 +1,28 @@
+package MyClass;
+
+public class NOD implements IOperation {
+    @Override
+    public String getName(){
+        return "Наибольший общий делитель";
+    }
+
+    
+    @Override
+    public String getSign(){
+        return "Наибольший общий делитель";
+    }
+
+    
+    @Override
+    public int estimate(int a, int b){
+        if (a == 0 || b == 0) return a + b;
+        else {
+        	int moda = Math.abs(a);
+            int modb = Math.abs(b);
+            int bigv = Math.max(moda,modb);
+            int smallv = Math.min(moda,modb);
+
+            return estimate(bigv % smallv, smallv );
+        }
+    } 
+}
