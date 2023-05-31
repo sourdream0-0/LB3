@@ -1,0 +1,15 @@
+package MyClass;
+
+public class UserInterface {
+
+    public static void main(String[] args){
+        IOperation[] operations = {new DIV(), new MOD(), new NOD(), new NOK()};
+
+        int a = 50, b = 10;
+        for (IOperation op : operations){
+            System.out.println(op.getName());
+            System.out.printf("%d %s %d = %d \n", a, op.getSign(), b, op.estimate(a, b));
+        }
+    }
+    
+}
