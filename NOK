@@ -1,0 +1,29 @@
+package MyClass;
+
+public class NOK implements IOperation {
+    @Override
+    public String getName(){
+        return "Наименьшее общее кратное";
+    }
+
+    
+    @Override
+    public String getSign(){
+        return "Наименьшее общее кратное";
+    }
+
+    
+    @Override
+    public int estimate(int a, int b){
+        if (a == 0 || b == 0) return 0;
+        else {
+            int moda = Math.abs(a);
+            int modb = Math.abs(b);
+            int bigv = Math.max(moda,modb);
+            int smallv = Math.min(moda,modb);
+            int nok = bigv;
+            while (nok % smallv !=0) nok+=bigv;
+            return nok;
+        }
+    } 
+}
